@@ -6,26 +6,51 @@ For my final project in this class, I will be modifying a previous HW assignment
 
 How to Run:
 
-I will be using a menu-style function, which will allow the user to make changes to the message, and log which node changed it. 
+I will be using a menu-style function, which will allow the user to make changes to the message, and log which node changed it. As of now - I have included to additional menu functions to the original layout.
+
+The new menu layout has had two additional menu functions added, right before the quit function. (Those options are now #7 and #8 - seen below, with asterisks):
+
+======Main Menu=====
+1. Build Network
+2. Print Network Path
+3. Enqueue
+4. Dequeue
+5. Print Queue
+6. Send Entire Message
+7. Modify the Message       *****
+8. Update the Message Log   *****
+9. Quit
+
+Options 7 and 8 will call the functions required to modify, and then update, the traversing message log. 
+
+
+
+
+
+
 
 Dependencies:
 
---not filled out yet.
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
+#include "CommunicationNetwork.h"
 
 System Requirements:
 
---not filled out yet.
+--any standard linux operating environment, with respective commands (i.e. sunOS vs. ubuntu, redhat, etc..)
 
 Group Members:
 
-Just me. 
+Just me - Daniel Frost
 
 Contributors:
 
---not filled out yet.
+--
 
 Open issues/bugs:
 
---not filled out yet.
+--
 
 
