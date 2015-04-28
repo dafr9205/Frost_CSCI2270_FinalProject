@@ -120,8 +120,10 @@ void CommunicationNetwork::printQueue(){
     }
 }
 
-void CommunicationNetwork::sendEntireMessage(){
-
+void CommunicationNetwork::sendEntireMessage(vector<string>& message){
+    for (int i =0; i<message.size(); i++){
+        transmitMsg(message[i]);
+    }
 
 }
 
@@ -135,7 +137,10 @@ void CommunicationNetwork::transmitMsg(string word){
         while(temp!=NULL){  //send the message from head to tail
             cout << temp->name << " received " << temp->message << endl;
             if (temp->next != NULL){
-                temp->next->message = temp->message;
+                if (temp->next->transmit)
+                    temp->next->message = temp->message;
+                else
+                    temp->next->transmit = true;
             }
             temp = temp->next;
         }
@@ -154,8 +159,20 @@ void CommunicationNetwork::transmitMsg(string word){
     return;
 }
 
-void CommunicationNetwork::modMessage(){
-} //modify message, and send modified message to next node
+void CommunicationNetwork::modMessage(string word, string cityName){
+    city * temp = head;
+    while (temp != NULL){
+        if (temp->name == cityName)
+            break;
+        temp=temp->next;
+    }
+    if (temp == NULL){
+        cout << "City not found in network, please try again. " << endl;
+        return;
+    }
+    temp->message = word;
+    temp->transmit = false;
+}
 
 void CommunicationNetwork::updMessageLog(){
 } // update the changes made to the master file, for tracking

@@ -28,7 +28,7 @@ int main(int argc,const char * argv[])  //for CLA
               DEQUEUE = 4,
               PRINTQUEUE = 5,
               SENDENTIREMESSAGE = 6,
-              MODIFYMESSAGE = 7,
+              REPLACEAWORD = 7,
               UPDATEMESSAGLELOG = 8,
               QUIT = 9;
 
@@ -36,15 +36,16 @@ int main(int argc,const char * argv[])  //for CLA
 
     ifstream msgInput ("messageIn.txt");
 
-    string* fileQueue = new string[100];
+    vector<string> fileQueue;
 
-    int i = 0;
+    string nextWord;
 
-    while(msgInput >> fileQueue[i]){
-        i++;   //call support function to pass the word
+
+    while(msgInput >> nextWord){
+        fileQueue.push_back(nextWord);   //call support function to pass the word
         }
 
-    int j = 0 ;
+    int j = 0;
 
     do
     {
@@ -62,18 +63,18 @@ int main(int argc,const char * argv[])  //for CLA
         {
             switch (menuChoice)
             {
-                case BUILDNETWORK:
+                case BUILDNETWORK:{
                     commNetwork.buildNetwork();   //create the head of the network
-                    break;
+                    break;}
 
 
-                case PRINTNETWORKPATH:
+                case PRINTNETWORKPATH:{
                     commNetwork.printPath();   //pass head of network to printpath function
-                    break;
+                    break;}
 
 
-                case ENQUEUE:
-                    if (j < i){
+                case ENQUEUE:{
+                    if (j < fileQueue.size()){
                         int error = commNetwork.enqueue(fileQueue[j]);
                         if (error == 1)
                             j++;  //call transmit msg function     //i is tail, j is the head
@@ -81,34 +82,41 @@ int main(int argc,const char * argv[])  //for CLA
                         cout <<"No more words to queue."<<endl;
                     }
 
-                    break;
+                    break;}
 
 
-                case DEQUEUE:
+                case DEQUEUE:{
                     commNetwork.dequeue();//create a new function to ask the user what city and cin it.
-                    break;
+                    break;}
 
 
-                case PRINTQUEUE:
+                case PRINTQUEUE:{
                     commNetwork.printQueue();
-                    break;
+                    break;}
 
 
-                case SENDENTIREMESSAGE:
-                    commNetwork.sendEntireMessage();
-                    break;
+                case SENDENTIREMESSAGE:{
+                    commNetwork.sendEntireMessage(fileQueue);
+                    break;}
 
-                /*case MODIFYMESSAGE:
-                    commNetwork.modMessage();
-                    break;
+                case REPLACEAWORD:{
+                    string replacementWord;
+                    string citySending;
 
-                case UPDATEMESSAGLELOG:
+                    cout << "Please input a replacement word: " << endl;
+                    cin >> replacementWord;
+                    cout << "Please input the city that is sending the replacement word: " << endl;
+                    cin >> citySending;
+                    commNetwork.modMessage(replacementWord, citySending);
+                    break;}
+
+                /*case UPDATEMESSAGLELOG:
                     commNetwork.updMessageLog();
                     break;*/
 
-                case QUIT:
+                case QUIT:{
 
-                    break;
+                    break;}
 
             }
         }else{
@@ -131,7 +139,7 @@ void showMenu()
     cout << "4. Dequeue"<< endl;
     cout << "5. Print Queue" << endl;
     cout << "6. Send Entire Message" << endl;
-    cout << "7. Modify the Message" << endl;
+    cout << "7. Replace a Word" << endl;
     cout << "8. Update the Message Log" << endl;
     cout << "9. Quit" << endl;
 }
