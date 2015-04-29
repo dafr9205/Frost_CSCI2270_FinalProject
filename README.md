@@ -6,7 +6,11 @@ For my final project in this class, I will be modifying a previous HW assignment
 
 How to Run:
 
-I will be using a menu-style function, which will allow the user to make changes to the message, and log which node changed it. As of now - I have included to additional menu functions to the original layout.
+I will be using a menu-style function, which will allow the user to make changes to the message. 
+I have included to additional menu functions to the original layout.
+If option 7 is chosen, the system asks the user for a replacement word, then asks which city is sending the replacement word.
+If option 8 is chosen, the updated message is outputted to a new log file, which tracks changes made to the original message (including which node sent the last update).
+
 
 The new menu layout has had two additional menu functions added, right before the quit function. (Those options are now #7 and #8 - seen below, with asterisks):
 
@@ -17,25 +21,24 @@ The new menu layout has had two additional menu functions added, right before th
 4. Dequeue
 5. Print Queue
 6. Send Entire Message
-7. Modify the Message       *****
-8. Update the Message Log   *****
+7. *Replace a Word*
+8. *Update the Message Log*   
 9. Quit
 
-Options 7 and 8 will call the functions required to modify, and then update, the traversing message log. 
-
-
-
+Options 7 and 8 are the new options included, which allow for changes to the message (including which node is updating a word).
 
 
 
 
 Dependencies:
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
-#include "CommunicationNetwork.h"
+iostream
+fstream
+string (in CommunicationNetwork.cpp and .h)
+sstream
+vector (only in .h)
+include"CommunicationNetwork.h"
+
 
 System Requirements:
 
@@ -51,6 +54,6 @@ Contributors:
 
 Open issues/bugs:
 
---
+-- Currently, option 8, that outputs the changes of the message to a logfile, is still not complete. Option 7 is fully functional. 
 
 
