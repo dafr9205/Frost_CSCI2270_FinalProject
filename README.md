@@ -2,14 +2,21 @@
 
 Project Summary:
 
-For my final project in this class, I will be modifying a previous HW assignment to include additional functionality. The assignment will be assignment 4, where we used enqueue and dequeue to transmit a message from city to city. The additional functionality that I will be adding will be related to the message itself; I would like to include options to modify the message, and change an output file to include a message of which city the message was modified in, and possibly even something like a timestamp. I am attempting to create a “post-apocalyptic” messaging system, which can be used between main city hubs to communicate with each-other (as well as update the message, and see who the last city to update or change it was.) I might even include message history in a “show-file log,” so that you can see when it was changed. 
+For my final project in this class, I will be modifying a previous HW assignment to include additional functionality. 
+The assignment will be assignment 4, where we used enqueue and dequeue to transmit a message from city to city. 
+The additional functionality that I will be adding will be related to the message itself; 
+I included options to modify the message, and change an output file to include a message of which city the message was modified in, 
+and possibly even something like a timestamp. 
+I am attempting to create a “post-apocalyptic” messaging system, 
+which can be used between main city hubs to communicate with each-other (as well as update the message, and see who the last city to update or change it was.) 
+I might even include message history in a “show-file log,” so that you can see when it was changed. 
 
 How to Run:
 
-I will be using a menu-style function, which will allow the user to make changes to the message. 
-I have included to additional menu functions to the original layout.
-If option 7 is chosen, the system asks the user for a replacement word, then asks which city is sending the replacement word.
-If option 8 is chosen, the updated message is outputted to a new log file, which tracks changes made to the original message (including which node sent the last update).
+This program can be run in Code-Blocks, just like the original assignment. 
+I have included a .cbp as well, so that the user only needs to open the .cbp project file.
+No need to create a makefile. 
+Just open up codeblocks, or use the Assignment4.cpp, CommunicationNetwork.cpp, and CommunicationNetwork.cpp file.
 
 
 The new menu layout has had two additional menu functions added, right before the quit function. (Those options are now #7 and #8 - seen below, with asterisks):
