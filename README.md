@@ -3,20 +3,19 @@
 Project Summary:
 
 For my final project in this class, I will be modifying a previous HW assignment to include additional functionality. 
-The assignment will be assignment 4, where we used enqueue and dequeue to transmit a message from city to city. 
-The additional functionality that I will be adding will be related to the message itself; 
-I included options to modify the message, and change an output file to include a message of which city the message was modified in, 
-and possibly even something like a timestamp. 
-I am attempting to create a “post-apocalyptic” messaging system, 
-which can be used between main city hubs to communicate with each-other (as well as update the message, and see who the last city to update or change it was.) 
-I might even include message history in a “show-file log,” so that you can see when it was changed. 
+The assignment I am modifying is assignment 4, where we used enqueue and dequeue to transmit a message from city to city. 
+The additional functionality that I implemented will be related to the message itself.
+I added an extra menu item (option 7) which allows the user to input a replacement word, as well as which node is sending the replacement word.
+You can then choose option 6 to send the entire message - it shows the replacement word sent, starting at the node the user chose to send the replacement message from. 
 
 How to Run:
 
-This program can be run in Code-Blocks, just like the original assignment. 
-I have included a .cbp as well, so that the user only needs to open the .cbp project file.
-No need to create a makefile. 
-Just open up codeblocks, or use the Assignment4.cpp, CommunicationNetwork.cpp, and CommunicationNetwork.cpp file.
+I will be using a menu-style function, which will allow the user to make changes to the message. 
+I have included additional menu functions to the original options from our assignment.
+If option 7 is chosen, the system asks the user for a replacement word, then asks which city is sending the replacement word.
+The modified medsage can then be tested by sending the entire message (option 6).
+If option 8 is chosen, the updated message is outputted to a new log file, which tracks changes made to the original message (including which node sent the last update).
+*Please note - option 8 is not operational yet.*
 
 
 The new menu layout has had two additional menu functions added, right before the quit function. (Those options are now #7 and #8 - seen below, with asterisks):
@@ -34,6 +33,11 @@ The new menu layout has had two additional menu functions added, right before th
 
 Options 7 and 8 are the new options included, which allow for changes to the message (including which node is updating a word).
 
+
+Future Features:
+
+I am still working on getting a version of this program running with option 8. This option will use ofstream to write the new, modified message,
+into a seperate message output file, so that a message log of changes can be viewed by the user. 
 
 
 
